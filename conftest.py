@@ -1,14 +1,18 @@
-import time
-
 import pytest
-from pageobject.commands import send_keys
-from paginas.loginpage import loginpage
 
+from pages.LoginPage import LoginPage
+
+def pytest_addoption(parser):
+    parser.addoption("--browser", default='chrome', help='Browser to run the tests.')
 
 @pytest.fixture()
-def openlogin():
-    login_page = loginpage()
+def open_login_page():
+    # login_page = LoginPage()
+    # yield login_page
+    login_page = LoginPage()
     yield login_page
+    #login_page.save_screenshot_page()
+    #login_page.close()
 
 
 
