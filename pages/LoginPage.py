@@ -10,15 +10,11 @@ from pages.PageObject import PageObject
 class LoginPage(PageObject):
     url_login = 'https://www.automationexercise.com/login'
     xpath_login_btn = '//*[@id="form"]/div/div/div[1]/div/form/button'
-    # class_error_message = 'error-message-container'
-    # txt_error_message = 'Epic sadface: Username is required'
     id_username = 'user-name'
     id_password = 'password'
     txt_success = 'Congratulations! Your new account has been successfully created!'
 
     def __init__(self):
-        # super(LoginPage, self).__init__(browser=browser)
-        # self.driver.get(self.url_login)
         self.driver = webdriver.Chrome()
         self.driver.get(self.url_login)
 
@@ -51,8 +47,6 @@ class LoginPage(PageObject):
                                  '/html/body/section/div/div/div/div[1]/form/div[5]/div/div[2]/div/select/option[3]').click()  # CAMPO MES (DATA DE NASCIMENTO)
         self.driver.find_element(By.XPATH,
                                  '/html/body/section/div/div/div/div[1]/form/div[5]/div/div[3]/div/select/option[28]').click()  # CAMPO ANO (DATA DE NASCIMENTO)
-        # self.driver.find_element(By.ID, 'newsletter').click() #RADIO - newsletter
-        # self.driver.find_element(By.ID, 'optin').click() #RADIO - RECEBER OFERTAS ESPECIAIS## INFORMAÇÕES DE ENDEREÇO DE ENTREGA
         self.driver.find_element(By.ID, 'first_name').send_keys('Gustavo')  # CAMPO Primeiro Nome
         self.driver.find_element(By.ID, 'last_name').send_keys('Dos Devs')  # CAMPO Segundo nome
         self.driver.find_element(By.ID, 'address1').send_keys(
