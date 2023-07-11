@@ -9,7 +9,6 @@ from pages.PageObject import PageObject
 
 class LoginPage(PageObject):
     url_login = 'https://www.automationexercise.com/login'
-    xpath_login_btn = '//*[@id="form"]/div/div/div[1]/div/form/button'
     id_username = 'user-name'
     id_password = 'password'
     txt_success = 'Congratulations! Your new account has been successfully created!'
@@ -19,9 +18,9 @@ class LoginPage(PageObject):
         self.driver.get(self.url_login)
 
     def efetuar_login(self):
-        # self.driver.find_element(By).send_keys('')
-        # //*[@id="form"]/div/div/div[1]/div/form/button
-        self.driver.find_element(By.XPATH, self.xpath_login_btn).click()
+        self.driver.find_element(By.CSS_SELECTOR, '[name="email"]').send_keys('fcb@gmail.com')
+        self.driver.find_element(By.CSS_SELECTOR, '[name="password"]').send_keys('1234')
+        self.driver.find_element(By.CSS_SELECTOR, '[type="submit"]').click()
 
     def is_url_login(self):
         return self.is_url(url=self.url_login)
